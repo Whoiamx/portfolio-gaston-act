@@ -30,13 +30,15 @@ export function HeroSection() {
               fluidas, modernas y atractivas.
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-              <Button
-                size="lg"
-                className="bg-primary hover:cursor-pointer text-primary-foreground hover:bg-primary/90 text-base px-8 py-6 font-semibold"
-              >
-                <Download className="w-5 h-5 mr-2" />
-                Descargar CV
-              </Button>
+              <a href="/cvgaston.pdf" download>
+                <Button
+                  size="lg"
+                  className="bg-primary hover:cursor-pointer text-primary-foreground hover:bg-primary/90 text-base px-8 py-6 font-semibold"
+                >
+                  <Download className="w-5 h-5 mr-2" />
+                  Descargar CV
+                </Button>
+              </a>
               <Button
                 size="lg"
                 variant="outline"

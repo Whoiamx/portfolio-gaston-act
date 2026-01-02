@@ -38,19 +38,22 @@ export function Footer() {
             </Link>
           </nav>
 
-          {/* Social */}
           <div className="flex items-center gap-5">
             <Link
-              href="#"
+              href="https://www.linkedin.com/in/gastontimchuk"
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Linkedin className="w-6 h-6" />
             </Link>
             <Link
-              href="#"
+              href="https://github.com/Whoiamx"
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Github className="w-6 h-6" />
             </Link>

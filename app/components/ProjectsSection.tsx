@@ -11,7 +11,6 @@ export function ProjectsSection() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-          {/* Section Title */}
           <div className="lg:col-span-4">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground lg:sticky lg:top-28">
               Proyectos
@@ -21,15 +20,13 @@ export function ProjectsSection() {
             </p>
           </div>
 
-          {/* Projects Grid */}
           <div className="lg:col-span-8">
             <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="group rounded-2xl bg-card border border-border hover:border-primary/40 transition-all duration-300 overflow-hidden"
+                  className="group hover:cursor-pointer rounded-2xl bg-card border border-border hover:border-primary/40 transition-all duration-300 overflow-hidden"
                 >
-                  {/* Project Image */}
                   <div className="relative h-48 sm:h-56 overflow-hidden">
                     <Image
                       src={project.image || "/placeholder.svg"}
@@ -40,7 +37,6 @@ export function ProjectsSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                    {/* Hover Actions */}
                     <div className="absolute top-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <Link
                         href={project.repoUrl}
