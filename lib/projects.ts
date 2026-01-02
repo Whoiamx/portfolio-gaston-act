@@ -1,0 +1,70 @@
+export const projects = [
+  {
+    id: 1,
+    title: "Lavalo App",
+    description: "Aplicación para buscar trabajo con ayuda de la IA",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Nest JS",
+      "Tailwind CSS",
+      "Express JS",
+      "PostgreSQL",
+      "Node JS",
+    ],
+    image: "/job-search-ai-application-dark-theme.jpg",
+    repoUrl: "#",
+    liveUrl: "#",
+  },
+  {
+    id: 2,
+    title: "Fit 2 Work",
+    description: "Aplicación para buscar trabajo con ayuda de la IA",
+    technologies: ["Next.js", "TypeScript", "Nest JS", "Tailwind CSS"],
+    image: "/job-search-ai-application-dark-theme.jpg",
+    repoUrl: "#",
+    liveUrl: "#",
+  },
+  {
+    id: 3,
+    title: "Sup Today",
+    description:
+      "Aplicación para anotar recordatorios con notificaciones vía WhatsApp y Email.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
+    image: "/reminder-notification-app-dark-theme.jpg",
+    repoUrl: "#",
+    liveUrl: "#",
+  },
+
+  {
+    id: 4,
+    title: "Film Zone",
+    description: "Aplicación para guardar tus películas favoritas",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
+    image: "/movie-collection-app-dark-theme.jpg",
+    repoUrl: "#",
+    liveUrl: "#",
+  },
+  {
+    id: 5,
+    title: "Cuanto Tengo",
+    description:
+      "Aplicación para controlar sus finanzas con cotizaciones en tiempo real",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/finance-tracking-app-dark-theme.jpg",
+    repoUrl: "#",
+    liveUrl: "#",
+  },
+];
