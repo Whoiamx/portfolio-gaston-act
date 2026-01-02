@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Download, Linkedin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -42,23 +43,25 @@ export function HeroSection() {
                 className="border-border hover:cursor-pointer text-foreground hover:bg-secondary bg-transparent text-base px-8 py-6 font-semibold"
               >
                 <Linkedin className="w-5 h-5 mr-2" />
-                LinkedIn
+                <Link
+                  href="https://www.linkedin.com/in/gastontimchuk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Linkedin
+                </Link>
               </Button>
             </div>
           </div>
 
           <div className="shrink-0 relative order-first lg:order-last">
-            {/* Círculo decorativo de fondo */}
             <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-2xl" />
 
-            {/* Contenedor de imagen circular */}
             <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
-              {/* Borde con gradiente */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-primary/50 to-primary/20 p-1">
                 <div className="w-full h-full rounded-full bg-background" />
               </div>
 
-              {/* Imagen */}
               <div className="absolute inset-2 rounded-full overflow-hidden">
                 <Image
                   src="/nobg-gaston.png"
@@ -70,7 +73,6 @@ export function HeroSection() {
                 />
               </div>
 
-              {/* Efecto de brillo sutil */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
