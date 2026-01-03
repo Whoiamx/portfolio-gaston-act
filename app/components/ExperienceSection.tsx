@@ -6,7 +6,6 @@ export function ExperienceSection() {
     <section id="experience" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-          {/* Section Title */}
           <div className="lg:col-span-4">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground lg:sticky lg:top-28">
               Experiencia laboral
@@ -16,7 +15,6 @@ export function ExperienceSection() {
             </p>
           </div>
 
-          {/* Experience List */}
           <div className="lg:col-span-8">
             <div className="space-y-6">
               {experiences.map((experience, index) => (

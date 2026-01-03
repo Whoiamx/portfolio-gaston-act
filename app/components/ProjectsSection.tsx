@@ -42,6 +42,7 @@ export function ProjectsSection() {
                         href={project.repoUrl}
                         className="w-10 h-10 rounded-full bg-background/90 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                         aria-label="Ver repositorio"
+                        target="_blank"
                       >
                         <Github className="w-5 h-5" />
                       </Link>
@@ -49,6 +50,7 @@ export function ProjectsSection() {
                         href={project.liveUrl}
                         className="w-10 h-10 rounded-full bg-background/90 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                         aria-label="Ver proyecto en vivo"
+                        target="_blank"
                       >
                         <ExternalLink className="w-5 h-5" />
                       </Link>
