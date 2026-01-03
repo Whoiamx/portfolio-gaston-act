@@ -24,12 +24,12 @@ export function CTASection() {
           size="lg"
           className="bg-primary hover:cursor-pointer text-primary-foreground hover:bg-primary/90 text-base sm:text-lg px-8 py-6 font-semibold"
         >
+          <Mail className="w-5 h-5 mr-2" />
           <Link
             href="mailto:gaastontimchuk@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Mail className="w-5 h-5 mr-2" />
             Contactame
           </Link>
         </Button>
