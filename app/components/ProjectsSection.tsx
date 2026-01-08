@@ -1,7 +1,32 @@
+"use client";
+
 import { projects } from "@/lib/projects";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
+    },
+  },
+};
 
 export function ProjectsSection() {
   return (
@@ -11,20 +36,37 @@ export function ProjectsSection() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-          <div className="lg:col-span-4">
+          <motion.div
+            className="lg:col-span-4"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground lg:sticky lg:top-28">
               Proyectos
             </h2>
             <p className="mt-4 text-lg text-muted-foreground lg:sticky lg:top-40">
               Una selección de mis trabajos más destacados
             </p>
-          </div>
+          </motion.div>
 
           <div className="lg:col-span-8">
-            <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+            <motion.div
+              className="grid sm:grid-cols-2 gap-6 sm:gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
               {projects.map((project) => (
-                <div
+                <motion.div
                   key={project.id}
+                  variants={cardVariants}
+                  whileHover={{
+                    y: -10,
+                    transition: { duration: 0.3 },
+                  }}
                   className="group hover:cursor-pointer rounded-2xl bg-card border border-border hover:border-primary/40 transition-all duration-300 overflow-hidden"
                 >
                   <div className="relative h-48 sm:h-56 overflow-hidden">
@@ -76,9 +118,9 @@ export function ProjectsSection() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
