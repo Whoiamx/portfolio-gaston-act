@@ -2,7 +2,8 @@ export const projects = [
   {
     id: 1,
     title: "Lavalo App",
-    description: "Aplicación de SaaS para la gestión de lavanderías",
+    description:
+      "Aplicación SaaS para lavanderías orientada a la gestión de pedidos, seguimiento de prendas y administración de entregas, centralizando la operación del negocio en una sola plataforma.",
     technologies: [
       "Next.js",
       "TypeScript",
