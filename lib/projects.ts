@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "Lavalo App",
-    description: "Aplicación para buscar trabajo con ayuda de la IA",
+    description: "Aplicación de SaaS para la gestión de lavanderías",
     technologies: [
       "Next.js",
       "TypeScript",

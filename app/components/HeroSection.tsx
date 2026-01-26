@@ -101,7 +101,10 @@ export function HeroSection() {
                   Descargar CV
                 </Button>
               </motion.a>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   size="lg"
                   variant="outline"
