@@ -13,7 +13,7 @@ export const projects = [
       "PostgreSQL",
       "Node JS",
     ],
-    image: "/lavalo.png",
+    image: "/lavaloapp.png",
     repoUrl: "https://github.com/Whoiamx",
     liveUrl: "https://lavaloapp.vercel.app/",
   },

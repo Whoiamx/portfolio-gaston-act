@@ -27,37 +27,37 @@ const itemVariants = {
 
 export function TechnologiesSection() {
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-y border-border">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-y border-border/60">
+      <div className="max-w-5xl mx-auto">
         <motion.h3
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center text-lg sm:text-xl font-medium text-muted-foreground mb-10"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="text-center text-base sm:text-lg font-medium text-muted-foreground mb-8"
         >
           Tecnologías que utilizo
         </motion.h3>
         <motion.div
-          className="flex flex-wrap justify-center items-center gap-3 sm:gap-4"
+          className="flex flex-wrap justify-center items-center gap-2.5 sm:gap-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
         >
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{
-                scale: 1.1,
-                y: -5,
-                transition: { duration: 0.2 },
+                scale: 1.05,
+                y: -3,
+                transition: { duration: 0.15 },
               }}
-              className="flex items-center gap-3 px-5 py-3 rounded-xl bg-card border border-border hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-card/70 backdrop-blur-sm border border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-200"
             >
-              <span className="text-xl sm:text-2xl">{tech.icon}</span>
-              <span className="text-base font-medium text-foreground">
+              <span className="text-lg sm:text-xl">{tech.icon}</span>
+              <span className="text-sm font-medium text-foreground">
                 {tech.name}
               </span>
             </motion.div>

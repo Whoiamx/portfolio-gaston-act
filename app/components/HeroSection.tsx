@@ -44,73 +44,77 @@ const imageVariants = {
 
 export function HeroSection() {
   return (
-    <section className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 sm:pt-32 lg:pt-36">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+    <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 sm:pt-28 lg:pt-32">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <motion.div
-            className="flex-1 max-w-2xl text-center lg:text-left"
+            className="flex-1 max-w-xl text-center lg:text-left"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <motion.div
               variants={itemVariants}
-              className="flex items-center justify-center lg:justify-start gap-4 mb-8"
+              className="flex items-center justify-center lg:justify-start gap-3 mb-6"
             >
-              <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-base font-medium">
-                <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                 <span className="text-primary">Disponible para trabajar</span>
               </span>
             </motion.div>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl text-muted-foreground mb-4 font-medium"
+              className="text-base sm:text-lg text-muted-foreground mb-3 font-medium tracking-wide"
             >
               Hola, soy Gastón 👋
             </motion.p>
             <motion.h1
               variants={itemVariants}
-              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 leading-tight tracking-tight"
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 leading-tight tracking-tight"
             >
-              <span className="text-primary">Desarrollador Fullstack</span>
+              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+                Desarrollador Fullstack
+              </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-muted-foreground text-lg sm:text-xl mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-muted-foreground text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed"
             >
               Apasionado por la tecnología y la creación de experiencias web
               fluidas, modernas y atractivas.
             </motion.p>
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
+              className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3"
             >
               <motion.a
                 href="/cvgaston.pdf"
                 download
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.15 }}
               >
                 <Button
                   size="lg"
-                  className="bg-primary hover:cursor-pointer text-primary-foreground hover:bg-primary/90 text-base px-8 py-6 font-semibold"
+                  className="bg-primary hover:cursor-pointer text-primary-foreground hover:bg-primary/90 text-sm px-6 py-5 font-semibold shadow-lg shadow-primary/20"
                 >
-                  <Download className="w-5 h-5 mr-2" />
+                  <Download className="w-4 h-4 mr-2" />
                   Descargar CV
                 </Button>
               </motion.a>
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.15 }}
               >
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-border hover:cursor-pointer text-foreground hover:bg-secondary bg-transparent text-base px-8 py-6 font-semibold"
+                  className="border-border hover:cursor-pointer text-foreground hover:bg-secondary/80 bg-transparent text-sm px-6 py-5 font-semibold hover:border-primary/40"
                 >
-                  <Linkedin className="w-5 h-5 mr-2" />
+                  <Linkedin className="w-4 h-4 mr-2" />
                   <Link
                     href="https://www.linkedin.com/in/gastontimchuk"
                     target="_blank"
@@ -129,20 +133,20 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
           >
-            <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-2xl" />
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/25 via-accent/10 to-transparent blur-2xl" />
 
             <motion.div
-              className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96"
+              className="relative w-48 h-48 sm:w-60 sm:h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80"
               animate={{
-                y: [0, -10, 0],
+                y: [0, -8, 0],
               }}
               transition={{
-                duration: 4,
+                duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-primary/50 to-primary/20 p-1">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-primary/60 to-accent/40 p-[3px]">
                 <div className="w-full h-full rounded-full bg-background" />
               </div>
 
@@ -153,11 +157,10 @@ export function HeroSection() {
                   fill
                   className="object-cover object-top scale-110"
                   priority
-                  sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 384px"
                 />
               </div>
 
-              <div className="absolute inset-0 rounded-full bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
             </motion.div>
           </motion.div>
         </div>
