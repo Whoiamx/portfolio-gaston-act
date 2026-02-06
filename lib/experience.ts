@@ -1,5 +1,12 @@
 export const experiences = [
   {
+    title: "Desarrollador Full Stack ",
+    company: "Freelance",
+    period: "Diciembre 2025 - Actualidad",
+    description:
+      " Desarrollo de aplicaciones web  personalizadas para clientes de diversos sectores, utilizando tecnologías modernas como Next.js y Node.js. Implementación de soluciones escalables y optimizadas para mejorar la presencia digital y la eficiencia operativa de los negocios.",
+  },
+  {
     title: "Analista Técnico Funcional SSR",
     company: "Universal Assistance",
     period: "Noviembre 2022 - Actualidad",
