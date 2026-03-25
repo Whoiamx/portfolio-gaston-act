@@ -29,6 +29,10 @@ const cardVariants = {
 };
 
 export function ProjectsSection() {
+  const openProject = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section
       id="projects"
@@ -63,6 +67,15 @@ export function ProjectsSection() {
                 <motion.div
                   key={project.id}
                   variants={cardVariants}
+                  role="link"
+                  tabIndex={0}
+                  onClick={() => openProject(project.liveUrl)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      openProject(project.liveUrl);
+                    }
+                  }}
                   whileHover={{
                     y: -6,
                     transition: { duration: 0.2, ease: "easeOut" },
@@ -82,17 +95,21 @@ export function ProjectsSection() {
                     <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                       <Link
                         href={project.repoUrl}
+                        onClick={(e) => e.stopPropagation()}
                         className="w-9 h-9 rounded-full bg-background/95 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-150"
                         aria-label="Ver repositorio"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <Github className="w-4 h-4" />
                       </Link>
                       <Link
                         href={project.liveUrl}
+                        onClick={(e) => e.stopPropagation()}
                         className="w-9 h-9 rounded-full bg-background/95 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-150"
                         aria-label="Ver proyecto en vivo"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <ExternalLink className="w-4 h-4" />
                       </Link>
