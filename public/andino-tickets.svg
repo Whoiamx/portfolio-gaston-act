@@ -1,0 +1,43 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="#0C1424"/>
+  <rect x="40" y="40" width="1120" height="640" rx="32" fill="url(#bg)"/>
+  <circle cx="1030" cy="140" r="170" fill="#1B2C4A" fill-opacity="0.8"/>
+  <circle cx="170" cy="620" r="220" fill="#15335B" fill-opacity="0.55"/>
+  <rect x="108" y="112" width="204" height="38" rx="19" fill="#F2C14E" fill-opacity="0.18" stroke="#F2C14E" stroke-opacity="0.35"/>
+  <path d="M146 126H165.5C171.851 126 177 131.149 177 137.5C177 143.851 171.851 149 165.5 149H146V126Z" fill="#F2C14E"/>
+  <path d="M183 126H202.5C208.851 126 214 131.149 214 137.5C214 143.851 208.851 149 202.5 149H183V126Z" fill="#F7D98B"/>
+  <path d="M220 126H239.5C245.851 126 251 131.149 251 137.5C251 143.851 245.851 149 239.5 149H220V126Z" fill="#FAE8B7"/>
+  <text x="332" y="138" fill="#F7F4EA" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1.4">ANDINO TICKETS</text>
+  <text x="108" y="250" fill="#F7F4EA" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="700">Eventos culturales</text>
+  <text x="108" y="330" fill="#F7F4EA" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="700">con reservas online</text>
+  <text x="108" y="398" fill="#CAD4E5" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400">Descubrimiento de cartelera, gestion de entradas y pagos integrados.</text>
+  <rect x="108" y="462" width="206" height="62" rx="31" fill="#F2C14E"/>
+  <text x="150" y="501" fill="#132238" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Explorar</text>
+  <g filter="url(#shadow)">
+    <rect x="744" y="172" width="322" height="378" rx="28" fill="#F6F1E7"/>
+  </g>
+  <rect x="772" y="206" width="266" height="130" rx="20" fill="#1A3155"/>
+  <text x="800" y="246" fill="#F7F4EA" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Folk You Mondays</text>
+  <text x="800" y="284" fill="#CFD8E6" font-family="Arial, Helvetica, sans-serif" font-size="18">8 Abril 2026  20:00 hs</text>
+  <text x="800" y="314" fill="#CFD8E6" font-family="Arial, Helvetica, sans-serif" font-size="18">La Dama de Bollini, CABA</text>
+  <rect x="772" y="362" width="126" height="86" rx="18" fill="#F2C14E" fill-opacity="0.22"/>
+  <rect x="912" y="362" width="126" height="86" rx="18" fill="#15335B" fill-opacity="0.16"/>
+  <rect x="772" y="462" width="266" height="56" rx="18" fill="#0F213B"/>
+  <text x="828" y="498" fill="#F7F4EA" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Reservar entrada</text>
+  <defs>
+    <linearGradient id="bg" x1="89" y1="86" x2="1047" y2="657" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10203A"/>
+      <stop offset="1" stop-color="#07111F"/>
+    </linearGradient>
+    <filter id="shadow" x="704" y="144" width="402" height="458" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="12"/>
+      <feGaussianBlur stdDeviation="20"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.00854167 0 0 0 0 0.0485 0 0 0 0 0.129167 0 0 0 0.28 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+</svg>

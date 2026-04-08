@@ -71,4 +71,19 @@ export const projects = [
     repoUrl: "https://github.com/Whoiamx/cuanto-tengo",
     liveUrl: "https://cuanto-tengo.vercel.app/",
   },
+  {
+    id: 6,
+    title: "Andino Tickets",
+    description:
+      "Boleteria online para eventos culturales con cartelera publica, exploracion de propuestas, reservas y pagos integrados para organizadores y asistentes.",
+    technologies: [
+      "Next.js",
+      "Node JS",
+      "Mercado Pago",
+      "PostgreSQL",
+    ],
+    image: "/andino-tickets.svg",
+    repoUrl: "https://andinotickets.com/",
+    liveUrl: "https://andinotickets.com/",
+  },
 ];
