@@ -17,8 +17,19 @@ export const projects = [
     repoUrl: "https://github.com/Whoiamx",
     liveUrl: "https://lavaloapp.vercel.app/",
   },
+
   {
     id: 2,
+    title: "Andino Tickets",
+    description:
+      "Boleteria online para eventos culturales con cartelera publica, exploracion de propuestas, reservas y pagos integrados para organizadores y asistentes.",
+    technologies: ["Next.js", "Node JS", "Mercado Pago", "PostgreSQL"],
+    image: "/andino-tickets.svg",
+    repoUrl: "https://andinotickets.com/",
+    liveUrl: "https://andinotickets.com/",
+  },
+  {
+    id: 3,
     title: "Fit 2 Work",
     description: "Aplicación para buscar trabajo con ayuda de la IA",
     technologies: ["Next.js", "TypeScript", "Nest JS", "Tailwind CSS"],
@@ -27,7 +38,7 @@ export const projects = [
     liveUrl: "https://fit-2-work.vercel.app/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Sup Today",
     description:
       "Aplicación para anotar recordatorios con notificaciones vía WhatsApp y Email.",
@@ -46,7 +57,7 @@ export const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "Film Zone",
     description: "Aplicación para guardar tus películas favoritas",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -55,7 +66,7 @@ export const projects = [
     liveUrl: "https://movies-finder-six.vercel.app/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Cuanto Tengo",
     description:
       "Aplicación para controlar sus finanzas con cotizaciones en tiempo real",
@@ -70,20 +81,5 @@ export const projects = [
     image: "/cuantotengo2.png",
     repoUrl: "https://github.com/Whoiamx/cuanto-tengo",
     liveUrl: "https://cuanto-tengo.vercel.app/",
-  },
-  {
-    id: 6,
-    title: "Andino Tickets",
-    description:
-      "Boleteria online para eventos culturales con cartelera publica, exploracion de propuestas, reservas y pagos integrados para organizadores y asistentes.",
-    technologies: [
-      "Next.js",
-      "Node JS",
-      "Mercado Pago",
-      "PostgreSQL",
-    ],
-    image: "/andino-tickets.svg",
-    repoUrl: "https://andinotickets.com/",
-    liveUrl: "https://andinotickets.com/",
   },
 ];
