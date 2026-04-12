@@ -5,13 +5,15 @@ import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { getCopy, t } from "@/lib/i18n";
+import { useLocale } from "@/components/locale-provider";
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.12,
     },
   },
 };
@@ -29,117 +31,117 @@ const cardVariants = {
 };
 
 export function ProjectsSection() {
-  const openProject = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
+  const { locale } = useLocale();
+  const localizedCopy = getCopy(locale);
 
   return (
     <section
       id="projects"
-      className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-card/30"
+      className="section-anchor px-4 py-20 sm:px-6 lg:px-8 lg:py-28"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-2xl lg:mb-16">
           <motion.div
-            className="lg:col-span-4"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground lg:sticky lg:top-24">
-              Proyectos
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-primary">
+              {localizedCopy.projects.eyebrow}
+            </p>
+            <h2 className="font-display text-[clamp(4rem,10vw,7rem)] leading-[0.9] text-white">
+              {localizedCopy.projects.title}
             </h2>
-            <p className="mt-3 text-base text-muted-foreground lg:sticky lg:top-36">
-              Una selección de mis trabajos más destacados
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              {localizedCopy.projects.description}
             </p>
           </motion.div>
+        </div>
 
-          <div className="lg:col-span-8">
-            <motion.div
-              className="grid sm:grid-cols-2 gap-5 sm:gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-            >
-              {projects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  variants={cardVariants}
-                  role="link"
-                  tabIndex={0}
-                  onClick={() => openProject(project.liveUrl)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      openProject(project.liveUrl);
-                    }
-                  }}
-                  whileHover={{
-                    y: -6,
-                    transition: { duration: 0.2, ease: "easeOut" },
-                  }}
-                  className="group hover:cursor-pointer rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-200 overflow-hidden"
-                >
-                  <div className="relative h-40 sm:h-48 overflow-hidden">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+        <motion.div
+          className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+        >
+          {projects.map((project) => {
+            const hasRepo = Boolean(project.repoUrl?.includes("github.com"));
 
-                    <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      <Link
-                        href={project.repoUrl}
-                        onClick={(e) => e.stopPropagation()}
-                        className="w-9 h-9 rounded-full bg-background/95 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-150"
-                        aria-label="Ver repositorio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-4 h-4" />
-                      </Link>
+            return (
+              <motion.article
+                key={project.id}
+                variants={cardVariants}
+                whileHover={{
+                  y: -8,
+                  transition: { duration: 0.2, ease: "easeOut" },
+                }}
+                className="group overflow-hidden rounded-[2rem] border border-white/10 bg-card/80 backdrop-blur-xl shadow-[0_1.25rem_5rem_rgba(9,12,32,0.2)]"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
+                </div>
+
+                <div className="flex flex-col gap-5 p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+                        {t(project.category, locale)}
+                      </p>
+                      <h3 className="text-3xl font-bold leading-none text-white">
+                        {project.title}
+                      </h3>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {hasRepo ? (
+                        <Link
+                          href={project.repoUrl!}
+                          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-foreground/90 transition-colors hover:border-primary/35 hover:text-primary"
+                          aria-label={`${localizedCopy.projects.viewRepo} ${project.title}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="h-4 w-4" />
+                        </Link>
+                      ) : null}
                       <Link
                         href={project.liveUrl}
-                        onClick={(e) => e.stopPropagation()}
-                        className="w-9 h-9 rounded-full bg-background/95 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-150"
-                        aria-label="Ver proyecto en vivo"
+                        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-foreground/90 transition-colors hover:border-primary/35 hover:text-primary"
+                        aria-label={`${localizedCopy.projects.viewProject} ${project.title}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="h-4 w-4" />
                       </Link>
                     </div>
                   </div>
 
-                  <div className="p-5">
-                    <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-200">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
+                  <p className="min-h-20 text-base leading-relaxed text-muted-foreground">
+                    {t(project.description, locale)}
+                  </p>
 
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.technologies.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="px-2.5 py-1 text-xs font-medium rounded-md bg-primary/10 text-primary/90 border border-primary/15"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={`${project.id}-${tech}`}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-foreground/86"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+                </div>
+              </motion.article>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

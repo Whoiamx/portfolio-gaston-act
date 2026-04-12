@@ -1,65 +1,105 @@
-export const projects = [
+import type { LocalizedText } from "@/lib/i18n";
+
+export const projects: Array<{
+  id: number;
+  category: LocalizedText;
+  title: string;
+  description: LocalizedText;
+  technologies: string[];
+  image: string;
+  repoUrl?: string;
+  liveUrl: string;
+}> = [
   {
     id: 1,
+    category: {
+      es: "SaaS / Operaciones",
+      en: "SaaS / Operations",
+    },
     title: "Lavalo App",
-    description:
-      "Aplicación SaaS para lavanderías orientada a la gestión de pedidos, seguimiento de prendas y administración de entregas, centralizando la operación del negocio en una sola plataforma.",
+    description: {
+      es: "Aplicación SaaS para lavanderías enfocada en pedidos, seguimiento de prendas y administración de entregas desde una sola plataforma.",
+      en: "SaaS app for laundries focused on order management, garment tracking and delivery operations in one platform.",
+    },
     technologies: [
       "Next.js",
       "TypeScript",
-      "Nest JS",
+      "NestJS",
       "Tailwind CSS",
-      "Express JS",
+      "Express.js",
       "PostgreSQL",
-      "Node JS",
+      "Node.js",
     ],
     image: "/lavaloapp.png",
     repoUrl: "https://github.com/Whoiamx",
     liveUrl: "https://lavaloapp.vercel.app/",
   },
-
   {
     id: 2,
+    category: {
+      es: "Eventos / Ticketing",
+      en: "Events / Ticketing",
+    },
     title: "Andino Tickets",
-    description:
-      "Boleteria online para eventos culturales con cartelera publica, exploracion de propuestas, reservas y pagos integrados para organizadores y asistentes.",
-    technologies: ["Next.js", "Node JS", "Mercado Pago", "PostgreSQL"],
+    description: {
+      es: "Boletería online para eventos culturales con cartelera pública, reservas y pagos integrados para organizadores y asistentes.",
+      en: "Online ticketing platform for cultural events with public listings, reservations and integrated payments.",
+    },
+    technologies: ["Next.js", "Node.js", "Mercado Pago", "PostgreSQL"],
     image: "/andino-tickets.svg",
-    repoUrl: "https://andinotickets.com/",
     liveUrl: "https://andinotickets.com/",
   },
   {
     id: 3,
+    category: {
+      es: "IA / Empleo",
+      en: "AI / Jobs",
+    },
     title: "Fit 2 Work",
-    description: "Aplicación para buscar trabajo con ayuda de la IA",
-    technologies: ["Next.js", "TypeScript", "Nest JS", "Tailwind CSS"],
+    description: {
+      es: "Aplicación orientada a búsqueda laboral con asistencia de IA.",
+      en: "Job-search product enhanced with AI assistance.",
+    },
+    technologies: ["Next.js", "TypeScript", "NestJS", "Tailwind CSS"],
     image: "/fit2work.png",
     repoUrl: "https://github.com/Whoiamx/fit-2-work",
     liveUrl: "https://fit-2-work.vercel.app/",
   },
   {
     id: 4,
+    category: {
+      es: "Productividad / Recordatorios",
+      en: "Productivity / Reminders",
+    },
     title: "Sup Today",
-    description:
-      "Aplicación para anotar recordatorios con notificaciones vía WhatsApp y Email.",
+    description: {
+      es: "Aplicación para gestionar recordatorios con notificaciones por WhatsApp y email.",
+      en: "Reminder management app with WhatsApp and email notifications.",
+    },
     technologies: [
       "Next.js",
       "TypeScript",
       "Prisma",
       "PostgreSQL",
       "Tailwind CSS",
-      "Node JS",
-      "Express JS",
+      "Node.js",
+      "Express.js",
     ],
     image: "/suptoday.png",
     repoUrl: "https://github.com/Whoiamx/sup-today-app",
     liveUrl: "https://sup-today-app.vercel.app/",
   },
-
   {
     id: 5,
+    category: {
+      es: "Media / Entretenimiento",
+      en: "Media / Entertainment",
+    },
     title: "Film Zone",
-    description: "Aplicación para guardar tus películas favoritas",
+    description: {
+      es: "Aplicación para descubrir y guardar películas favoritas.",
+      en: "Application to discover and save favorite movies.",
+    },
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "/moviefinder.png",
     repoUrl: "https://github.com/Whoiamx/movies-finder",
@@ -67,15 +107,21 @@ export const projects = [
   },
   {
     id: 6,
-    title: "Cuanto Tengo",
-    description:
-      "Aplicación para controlar sus finanzas con cotizaciones en tiempo real",
+    category: {
+      es: "Finanzas / Dashboard",
+      en: "Finance / Dashboard",
+    },
+    title: "Cuánto Tengo",
+    description: {
+      es: "Aplicación para controlar finanzas personales con cotizaciones en tiempo real.",
+      en: "Personal finance app with real-time exchange and market quotes.",
+    },
     technologies: [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
-      "Node JS ",
-      "Express JS",
+      "Node.js",
+      "Express.js",
       "PostgreSQL",
     ],
     image: "/cuantotengo2.png",

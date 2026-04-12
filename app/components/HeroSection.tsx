@@ -1,169 +1,179 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Download, Linkedin } from "lucide-react";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { getCopy } from "@/lib/i18n";
+import { getMailtoHref, siteConfig } from "@/lib/site";
+import { useLocale } from "@/components/locale-provider";
 
-const containerVariants = {
+const imageVariants = {
+  hidden: { opacity: 0, x: 30, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+const contentVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.1,
+      delayChildren: 0.08,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 22 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  },
-};
-
-const imageVariants = {
-  hidden: { opacity: 0, scale: 0.8, rotate: -10 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    rotate: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
 
 export function HeroSection() {
+  const { locale } = useLocale();
+  const localizedCopy = getCopy(locale);
+  const mailtoHref = getMailtoHref(locale);
+  const titleWords = localizedCopy.hero.titleBottom.split(" ");
+
+  const socialLinks = [
+    {
+      href: siteConfig.githubUrl,
+      label: "GitHub",
+      icon: Github,
+      external: true,
+    },
+    {
+      href: siteConfig.linkedinUrl,
+      label: "LinkedIn",
+      icon: Linkedin,
+      external: true,
+    },
+    {
+      href: mailtoHref,
+      label: "Email",
+      icon: Mail,
+      external: false,
+    },
+  ];
+
   return (
-    <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 sm:pt-28 lg:pt-32">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          <motion.div
-            className="flex-1 max-w-xl text-center lg:text-left"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+    <section
+      id="home"
+      className="section-anchor relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8"
+    >
+      <div className="mx-auto grid min-h-[calc(100svh-7rem)] max-w-7xl items-center gap-14 lg:grid-cols-[1fr_0.95fr] lg:gap-18">
+        <motion.div
+          className="relative z-10 max-w-3xl text-left"
+          variants={contentVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div className="inline-flex items-center gap-3" variants={itemVariants}>
+            <span className="h-px w-10 bg-white/28" />
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-white/78 sm:text-[0.8rem]">
+              {localizedCopy.hero.titleTop}
+            </p>
+          </motion.div>
+
+          <motion.h1
+            className="mt-6 font-display leading-[0.84] tracking-[0.015em] text-primary"
+            variants={itemVariants}
           >
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center justify-center lg:justify-start gap-3 mb-6"
-            >
-              <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                <span className="text-primary">Disponible para trabajar</span>
-              </span>
-            </motion.div>
+            <span className="block text-[clamp(4.6rem,9vw,8rem)]">
+              {titleWords[0]}
+            </span>
+            <span className="mt-1 block text-[clamp(4.6rem,9vw,8rem)]">
+              {titleWords.slice(1).join(" ")}
+            </span>
+          </motion.h1>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg text-muted-foreground mb-3 font-medium tracking-wide"
-            >
-              Hola, soy Gastón 👋
-            </motion.p>
-            <motion.h1
-              variants={itemVariants}
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 leading-tight tracking-tight"
-            >
-              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-                Desarrollador Fullstack
-              </span>
-            </motion.h1>
+          <motion.p
+            className="mt-6 text-base font-medium uppercase tracking-[0.24em] text-white/66 sm:text-[1.08rem]"
+            variants={itemVariants}
+          >
+            {localizedCopy.hero.name}
+          </motion.p>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-muted-foreground text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed"
+          <motion.div
+            className="mt-10 flex flex-wrap items-center gap-4"
+            variants={itemVariants}
+          >
+            <Button
+              asChild
+              size="lg"
+              className="h-[3.2rem] rounded-full bg-primary px-8 text-sm font-bold uppercase tracking-[0.12em] text-primary-foreground shadow-[0_0.875rem_1.875rem_rgba(22,229,255,0.18)] hover:bg-primary/90"
             >
-              Apasionado por la tecnología y la creación de experiencias web
-              fluidas, modernas y atractivas.
-            </motion.p>
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3"
+              <Link href="#projects">{localizedCopy.hero.primaryCta}</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-[3.2rem] rounded-full border-white/10 bg-white/5 px-6 text-sm font-bold uppercase tracking-[0.12em] text-foreground hover:border-primary/35 hover:bg-white/10"
             >
-              <motion.a
-                href="/cvgaston.pdf"
-                download
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.15 }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-primary hover:cursor-pointer text-primary-foreground hover:bg-primary/90 text-sm px-6 py-5 font-semibold shadow-lg shadow-primary/20"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Descargar CV
-                </Button>
-              </motion.a>
-              <motion.div
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.15 }}
-              >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-border hover:cursor-pointer text-foreground hover:bg-secondary/80 bg-transparent text-sm px-6 py-5 font-semibold hover:border-primary/40"
-                >
-                  <Linkedin className="w-4 h-4 mr-2" />
-                  <Link
-                    href="https://www.linkedin.com/in/gastontimchuk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Linkedin
-                  </Link>
-                </Button>
-              </motion.div>
-            </motion.div>
+              <a href={siteConfig.cvUrl} download>
+                <Download className="mr-2 h-4 w-4" />
+                {localizedCopy.hero.tertiaryCta}
+              </a>
+            </Button>
           </motion.div>
 
           <motion.div
-            className="shrink-0 relative order-first lg:order-last"
-            variants={imageVariants}
-            initial="hidden"
-            animate="visible"
+            className="mt-10 flex items-center gap-3"
+            variants={itemVariants}
           >
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/25 via-accent/10 to-transparent blur-2xl" />
-
-            <motion.div
-              className="relative w-48 h-48 sm:w-60 sm:h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80"
-              animate={{
-                y: [0, -8, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-primary/60 to-accent/40 p-[3px]">
-                <div className="w-full h-full rounded-full bg-background" />
-              </div>
-
-              <div className="absolute inset-2 rounded-full overflow-hidden">
-                <Image
-                  src="/nobg-gaston.png"
-                  alt="Gastón - Desarrollador Fullstack"
-                  fill
-                  className="object-cover object-top scale-110"
-                  priority
-                />
-              </div>
-
-              <div className="absolute inset-0 rounded-full bg-gradient-to-t from-background/30 via-transparent to-transparent pointer-events-none" />
-            </motion.div>
+            {socialLinks.map(({ href, label, icon: Icon, external }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/12 bg-white/6 text-foreground/86 transition-colors hover:border-primary/35 hover:text-primary"
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
           </motion.div>
-        </div>
+        </motion.div>
+
+        <motion.div
+          className="relative z-0 mx-auto flex w-full max-w-[28rem] items-center justify-center sm:max-w-[32rem] lg:max-w-[34rem]"
+          variants={imageVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="absolute h-[17rem] w-[17rem] rounded-full border border-primary/20 sm:h-[22rem] sm:w-[22rem] lg:h-[25rem] lg:w-[25rem]" />
+          <div className="absolute h-[20rem] w-[20rem] rounded-full border border-white/8 sm:h-[26rem] sm:w-[26rem] lg:h-[29rem] lg:w-[29rem]" />
+          <div className="absolute h-[15rem] w-[15rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(96,224,255,0.3),rgba(28,69,106,0.18),rgba(8,12,30,0))] blur-2xl sm:h-[19rem] sm:w-[19rem] lg:h-[22rem] lg:w-[22rem]" />
+
+          <div className="relative h-[15rem] w-[15rem] overflow-hidden rounded-full border border-white/10 bg-gradient-to-b from-white/10 to-white/5 shadow-[0_2.1875rem_5rem_rgba(8,12,30,0.28)] sm:h-[19rem] sm:w-[19rem] lg:h-[21rem] lg:w-[21rem]">
+            <Image
+              src="/nobg-gaston.png"
+              alt={siteConfig.fullName}
+              fill
+              className="object-cover object-top scale-[1.14]"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/28 via-transparent to-transparent" />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

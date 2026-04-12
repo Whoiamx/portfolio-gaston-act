@@ -5,17 +5,20 @@ import { Header } from "./components/Header";
 import { HeroSection } from "./components/HeroSection";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { TechnologiesSection } from "./components/TechnologiesSection";
+import { LocaleProvider } from "@/components/locale-provider";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
-      <Header />
-      <HeroSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <TechnologiesSection />
-      <CTASection />
-      <Footer />
-    </main>
+    <LocaleProvider>
+      <main className="min-h-screen bg-background text-foreground">
+        <Header />
+        <HeroSection />
+        <ProjectsSection />
+        <TechnologiesSection />
+        <ExperienceSection />
+        <CTASection />
+        <Footer />
+      </main>
+    </LocaleProvider>
   );
 }

@@ -1,20 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin, Github } from "lucide-react";
+import { Download, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
+import { getCopy } from "@/lib/i18n";
+import { siteConfig } from "@/lib/site";
+import { useLocale } from "@/components/locale-provider";
 
 export function Footer() {
+  const { locale } = useLocale();
+  const localizedCopy = getCopy(locale);
+
   return (
     <motion.footer
-      className="py-8 sm:py-10 px-4 sm:px-6 lg:px-8 border-t border-border/60"
+      className="border-t border-white/10 px-4 py-8 sm:px-6 lg:px-8 lg:py-10"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
     >
-      <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
           <motion.div
             className="flex items-center gap-2.5"
             initial={{ opacity: 0, x: -15 }}
@@ -22,42 +28,15 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xs">
-                G
-              </span>
-            </div>
+            <span className="text-xl font-black tracking-tight text-white">
+              {siteConfig.displayName}
+              <span className="text-primary">.</span>
+            </span>
             <span className="text-sm text-muted-foreground">
-              Copyright © {new Date().getFullYear()} · Gastón Timchuk Bilik
+              © {new Date().getFullYear()} {siteConfig.fullName}.{" "}
+              {localizedCopy.footer.rights}
             </span>
           </motion.div>
-
-          <motion.nav
-            className="flex items-center gap-6"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.15 }}
-          >
-            <Link
-              href="#experience"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-150"
-            >
-              Experiencia
-            </Link>
-            <Link
-              href="#projects"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-150"
-            >
-              Proyectos
-            </Link>
-            <Link
-              href="#contact"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-150"
-            >
-              Contacto
-            </Link>
-          </motion.nav>
 
           <motion.div
             className="flex items-center gap-4"
@@ -71,13 +50,13 @@ export function Footer() {
               transition={{ duration: 0.15 }}
             >
               <Link
-                href="https://www.linkedin.com/in/gastontimchuk"
-                className="text-muted-foreground hover:text-primary transition-colors duration-150"
-                aria-label="LinkedIn"
+                href={siteConfig.linkedinUrl}
+                className="text-muted-foreground transition-colors duration-150 hover:text-primary"
+                aria-label={localizedCopy.footer.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="h-5 w-5" />
               </Link>
             </motion.div>
             <motion.div
@@ -85,14 +64,27 @@ export function Footer() {
               transition={{ duration: 0.15 }}
             >
               <Link
-                href="https://github.com/Whoiamx"
-                className="text-muted-foreground hover:text-primary transition-colors duration-150"
-                aria-label="GitHub"
+                href={siteConfig.githubUrl}
+                className="text-muted-foreground transition-colors duration-150 hover:text-primary"
+                aria-label={localizedCopy.footer.github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Github className="w-5 h-5" />
+                <Github className="h-5 w-5" />
               </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1, y: -2 }}
+              transition={{ duration: 0.15 }}
+            >
+              <a
+                href={siteConfig.cvUrl}
+                download
+                className="text-muted-foreground transition-colors duration-150 hover:text-primary"
+                aria-label={localizedCopy.footer.downloadCv}
+              >
+                <Download className="h-5 w-5" />
+              </a>
             </motion.div>
           </motion.div>
         </div>

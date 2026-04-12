@@ -1,15 +1,17 @@
 "use client";
 
 import { experiences } from "@/lib/experience";
-import { Briefcase } from "lucide-react";
+import { BriefcaseBusiness } from "lucide-react";
 import { motion } from "framer-motion";
+import { getCopy, t } from "@/lib/i18n";
+import { useLocale } from "@/components/locale-provider";
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.12,
     },
   },
 };
@@ -20,80 +22,86 @@ const cardVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.55,
       ease: [0.25, 0.46, 0.45, 0.94] as const,
     },
   },
 };
 
 export function ExperienceSection() {
+  const { locale } = useLocale();
+  const localizedCopy = getCopy(locale);
+
   return (
-    <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+    <section
+      id="experience"
+      className="section-anchor px-4 py-20 sm:px-6 lg:px-8 lg:py-28"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 max-w-3xl">
           <motion.div
-            className="lg:col-span-4"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground lg:sticky lg:top-24">
-              Experiencia laboral
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-primary">
+              {localizedCopy.experience.eyebrow}
+            </p>
+            <h2 className="font-display text-[clamp(3.5rem,8vw,6rem)] leading-[0.9] text-white">
+              {localizedCopy.experience.title}
             </h2>
-            <p className="mt-3 text-base text-muted-foreground lg:sticky lg:top-36">
-              Mi trayectoria profesional en el desarrollo de software
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              {localizedCopy.experience.description}
             </p>
           </motion.div>
+        </div>
 
-          <div className="lg:col-span-8">
-            <motion.div
-              className="space-y-5"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
+        <motion.div
+          className="space-y-5"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+        >
+          {experiences.map((experience, index) => (
+            <motion.article
+              key={index}
+              variants={cardVariants}
+              whileHover={{
+                scale: 1.01,
+                transition: { duration: 0.15 },
+              }}
+              className="group rounded-[2rem] border border-white/10 bg-card/70 p-6 backdrop-blur-xl transition-all duration-200 hover:border-primary/20"
             >
-              {experiences.map((experience, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  whileHover={{
-                    scale: 1.01,
-                    transition: { duration: 0.15 },
-                  }}
-                  className="flex flex-col sm:flex-row gap-4 sm:gap-5 p-5 sm:p-6 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-200 group"
-                >
-                  <div className="flex-shrink-0">
-                    <motion.div
-                      className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors duration-200"
-                      whileHover={{ rotate: 5 }}
-                      transition={{ duration: 0.15 }}
-                    >
-                      <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                    </motion.div>
+              <div className="flex flex-col gap-5">
+                <div className="flex w-full gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <BriefcaseBusiness className="h-5 w-5" />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 mb-2">
-                      <h3 className="text-lg sm:text-xl font-semibold text-foreground">
-                        {experience.title}
-                      </h3>
-                      <span className="text-sm font-medium text-primary/90 whitespace-nowrap">
-                        {experience.period}
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">
+                          {t(experience.title, locale)}
+                        </h3>
+                        <p className="mt-1 text-base font-semibold text-primary">
+                          {experience.company}
+                        </p>
+                      </div>
+                      <span className="w-fit rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-foreground/84 md:ml-auto">
+                        {t(experience.period, locale)}
                       </span>
                     </div>
-                    <p className="text-primary font-semibold text-base mb-3">
-                      {experience.company}
-                    </p>
-                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      {experience.description}
+                    <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                      {t(experience.description, locale)}
                     </p>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
