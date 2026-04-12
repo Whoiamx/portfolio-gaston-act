@@ -25,9 +25,9 @@ export function resolvePreferredLocale(preferred?: string | null): Locale {
 export const copy = {
   es: {
     metadata: {
-      title: "Gaston Timchuk Bilik | Fullstack Developer & Creative Builder",
+      title: "Gastón Timchuk Bilik | Fullstack Developer & Creative Builder",
       description:
-        "Portfolio de Gaston Timchuk Bilik, fullstack developer y creative builder enfocado en productos web modernos, escalables y visualmente sólidos.",
+        "Portfolio de Gastón Timchuk Bilik, fullstack developer y creative builder enfocado en productos web modernos, escalables y visualmente sólidos.",
     },
     nav: {
       projects: "Proyectos",
@@ -41,7 +41,7 @@ export const copy = {
       closeMenu: "Cerrar menú",
     },
     hero: {
-      name: "Gaston Timchuk Bilik",
+      name: "Gastón Timchuk Bilik",
       titleTop: "Creative Builder",
       titleBottom: "Fullstack Developer",
       subtitle:
@@ -90,9 +90,9 @@ export const copy = {
   },
   en: {
     metadata: {
-      title: "Gaston Timchuk Bilik | Fullstack Developer & Creative Builder",
+      title: "Gastón Timchuk Bilik | Fullstack Developer & Creative Builder",
       description:
-        "Portfolio of Gaston Timchuk Bilik, a fullstack developer and creative builder focused on modern, scalable and visually solid web products.",
+        "Portfolio of Gastón Timchuk Bilik, a fullstack developer and creative builder focused on modern, scalable and visually solid web products.",
     },
     nav: {
       projects: "Projects",
@@ -106,7 +106,7 @@ export const copy = {
       closeMenu: "Close menu",
     },
     hero: {
-      name: "Gaston Timchuk Bilik",
+      name: "Gastón Timchuk Bilik",
       titleTop: "Creative Builder",
       titleBottom: "Fullstack Developer",
       subtitle:

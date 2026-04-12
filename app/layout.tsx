@@ -32,7 +32,7 @@ export function generateMetadata(): Metadata {
       "Next.js",
       "TypeScript",
     ],
-    authors: [{ name: "Gaston Timchuk Bilik" }],
+    authors: [{ name: "Gastón Timchuk Bilik" }],
     openGraph: {
       title: localizedCopy.metadata.title,
       description: localizedCopy.metadata.description,

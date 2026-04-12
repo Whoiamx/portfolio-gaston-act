@@ -86,7 +86,7 @@ export function HeroSection() {
         >
           <motion.div className="inline-flex items-center gap-3" variants={itemVariants}>
             <span className="h-px w-10 bg-white/28" />
-            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-white/78 sm:text-[0.8rem]">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-white sm:text-[0.8rem]">
               {localizedCopy.hero.titleTop}
             </p>
           </motion.div>
@@ -104,7 +104,7 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="mt-6 text-base font-medium uppercase tracking-[0.24em] text-white/66 sm:text-[1.08rem]"
+            className="mt-6 text-base font-medium uppercase tracking-[0.24em] text-white sm:text-[1.08rem]"
             variants={itemVariants}
           >
             {localizedCopy.hero.name}
